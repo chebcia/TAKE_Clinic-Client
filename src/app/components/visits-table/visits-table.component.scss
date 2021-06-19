@@ -1,0 +1,11 @@
+.visits-table {
+  width: 100%;
+
+  & > .visits-table_controls {
+    margin-bottom: 32px;
+  }
+
+  & > .visits-table_table {
+    width: 100%;
+  }
+}

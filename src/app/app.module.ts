@@ -1,0 +1,67 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TopbarComponent } from './components/topbar/topbar.component';
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatButtonModule } from "@angular/material/button";
+import { MatIconModule } from "@angular/material/icon";
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { SideNavComponent } from './components/side-nav/side-nav.component';
+import { MatListModule } from "@angular/material/list";
+import { DoctorComponent } from './pages/doctor/doctor.component';
+import { DiagnoseComponent } from './pages/diagnose/diagnose.component';
+import { DiseaseComponent } from './pages/disease/disease.component';
+import { VisitsComponent } from './pages/visits/visits.component';
+import { HomeComponent } from './pages/home/home.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import reducers from "./store/reducers";
+import { environment } from "../environments/environment";
+import { HttpClientModule } from "@angular/common/http";
+import { EffectsModule } from "@ngrx/effects";
+import { VisitsEffects } from "./store/effects/visits.effects";
+import { MatTableModule } from "@angular/material/table";
+import {CommonModule} from "@angular/common";
+import { VisitsTableComponent } from './components/visits-table/visits-table.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    TopbarComponent,
+    SideNavComponent,
+    DoctorComponent,
+    DiagnoseComponent,
+    DiseaseComponent,
+    VisitsComponent,
+    HomeComponent,
+    VisitsTableComponent,
+  ],
+    imports: [
+        CommonModule,
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatIconModule,
+        MatSidenavModule,
+        MatListModule,
+        MatTableModule,
+        StoreModule.forRoot(reducers, {}),
+        StoreDevtoolsModule.instrument({
+          maxAge: 25, // Retains last 25 states
+          logOnly: environment.production, // Restrict extension to log-only mode
+          autoPause: true, // Pauses recording actions and state changes when the extension window is not open
+        }),
+        EffectsModule.forRoot([
+          VisitsEffects,
+        ]),
+        HttpClientModule,
+    ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
