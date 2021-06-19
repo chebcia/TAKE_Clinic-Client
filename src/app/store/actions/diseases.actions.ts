@@ -9,11 +9,19 @@ export enum DiseasesActionsEnum {
   CreateReset = '[Diseases] Create reset',
   CreateSuccess = '[Diseases] Create success',
   CreateFailed = '[Diseases] Create failed',
+  Edit = '[Diseases] Edit',
+  EditReset = '[Diseases] Edit reset',
+  EditSuccess = '[Diseases] Edit success',
+  EditFailed = '[Diseases] Edit failed',
 }
 
 export interface DiseasesCreateStart {
   name: string;
   contagious: string;
+}
+
+export interface DiseasesEditStart extends DiseasesCreateStart {
+  id: number;
 }
 
 const fetchStart = createAction(DiseasesActionsEnum.FetchData);
@@ -25,6 +33,11 @@ const createStart = createAction(DiseasesActionsEnum.Create, props<DiseasesCreat
 const createSuccess = createAction(DiseasesActionsEnum.CreateSuccess);
 const createFailed = createAction(DiseasesActionsEnum.CreateFailed);
 
+const editReset = createAction(DiseasesActionsEnum.EditReset);
+const editStart = createAction(DiseasesActionsEnum.Edit, props<DiseasesEditStart>());
+const editSuccess = createAction(DiseasesActionsEnum.EditSuccess);
+const editFailed = createAction(DiseasesActionsEnum.EditFailed);
+
 const diseasesActions = {
   fetchStart,
   fetchSuccess,
@@ -32,7 +45,11 @@ const diseasesActions = {
   createReset,
   createStart,
   createSuccess,
-  createFailed
+  createFailed,
+  editReset,
+  editStart,
+  editSuccess,
+  editFailed,
 }
 
 export default diseasesActions;

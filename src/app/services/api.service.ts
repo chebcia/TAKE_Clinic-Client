@@ -32,6 +32,12 @@ export class ApiService {
     return this.http.post(`${this.apiUrl}${url}`, null);
   }
 
+  putDisease(id: number, name: string, contagious: string) {
+    const url = `diseases/${id}?name=${name}&contagious=${contagious}`;
+
+    return this.http.put(`${this.apiUrl}${url}`, null);
+  }
+
   getDoctorVisits(id: number): Observable<DoctorVisitsModel> {
     const url = `doctors/${id}/visits`;
 

@@ -6,6 +6,7 @@ import diseasesActions from "../actions/diseases.actions";
 export const initialState: DiseasesModel = {
   status: ApiStatusEnum.Init,
   createStatus: ApiStatusEnum.Init,
+  editStatus: ApiStatusEnum.Init,
   data: [],
 };
 
@@ -18,6 +19,10 @@ const _diseasesReducer = createReducer(
   on(diseasesActions.createStart, (state) => ({ ...state, createStatus: ApiStatusEnum.Pending })),
   on(diseasesActions.createSuccess, (state) => ({ ...state, createStatus: ApiStatusEnum.Success })),
   on(diseasesActions.createFailed, (state) => ({ ...state, createStatus: ApiStatusEnum.Failed })),
+  on(diseasesActions.editReset, (state) => ({ ...state, editStatus: ApiStatusEnum.Init })),
+  on(diseasesActions.editStart, (state) => ({ ...state, editStatus: ApiStatusEnum.Pending })),
+  on(diseasesActions.editSuccess, (state) => ({ ...state, editStatus: ApiStatusEnum.Success })),
+  on(diseasesActions.editFailed, (state) => ({ ...state, editStatus: ApiStatusEnum.Failed })),
 );
 
 export function diseasesReducer(state: DiseasesModel | undefined, action: Action) {

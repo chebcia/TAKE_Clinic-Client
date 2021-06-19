@@ -1,9 +1,9 @@
-<ng-container [ngSwitch]="diseaseCreateState | async">
-  <ng-container *ngSwitchCase="apiStatusEnum.Init">
+<ng-container [ngSwitch]="screenView">
+  <ng-container *ngSwitchCase="screenViews.Init">
     <form [formGroup]="form" class="disease-form" (submit)="submitForm($event)">
       <mat-form-field>
         <mat-label>Id</mat-label>
-        <input formControlName="id" matInput>
+        <input matInput disabled [value]="id">
       </mat-form-field>
       <mat-form-field>
         <mat-label>Name</mat-label>
@@ -23,13 +23,13 @@
     </form>
   </ng-container>
 
-  <ng-container *ngSwitchCase="apiStatusEnum.Pending">
+  <ng-container *ngSwitchCase="screenViews.Pending">
     <mat-spinner></mat-spinner>
   </ng-container>
 
-  <ng-container *ngSwitchCase="apiStatusEnum.Success">
+  <ng-container *ngSwitchCase="screenViews.Success">
     <p class="disease-form-copy">
-      Created disease
+      Created / edited disease
     </p>
     <div class="disease-form-controls">
       <button mat-raised-button color="primary" (click)="refresh()">Create one more</button>
@@ -37,9 +37,9 @@
     </div>
   </ng-container>
 
-  <ng-container *ngSwitchCase="apiStatusEnum.Failed">
+  <ng-container *ngSwitchCase="screenViews.Failed">
     <p class="disease-form-copy">
-      Failed creating disease
+      Failed creating / edited disease
     </p>
     <div class="disease-form-controls">
       <button mat-raised-button color="primary" (click)="refresh()">Try again</button>

@@ -14,7 +14,7 @@ import {DiseaseModel} from "../../models/disease.model";
 export class DiseasesTableComponent{
   dataSource$: Observable<DiseaseModel[]>;
 
-  displayedColumns: string[] = ['id', 'name', 'contagious'];
+  displayedColumns: string[] = ['id', 'name', 'contagious', 'controls'];
 
   constructor(private store: Store<AppState>) {
     this.dataSource$ = store.select(selectDiseasesData);

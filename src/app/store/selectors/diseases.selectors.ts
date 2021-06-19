@@ -7,7 +7,17 @@ export const selectDiseasesData = createSelector(
   (state: DiseasesModel) => state.data
 );
 
+export const selectDiseasesDataById = (idFilter: number) => createSelector(
+  selectDiseases,
+  (state: DiseasesModel) => state.data.find(({id}) => id === idFilter)
+);
+
 export const selectDiseasesCreateStatus = createSelector(
   selectDiseases,
   (state: DiseasesModel) => state.createStatus
+);
+
+export const selectDiseasesEditStatus = createSelector(
+  selectDiseases,
+  (state: DiseasesModel) => state.editStatus
 );

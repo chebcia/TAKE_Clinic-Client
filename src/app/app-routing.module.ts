@@ -29,6 +29,10 @@ const routes: Routes = [
     component: DiseaseFormComponent,
   },
   {
+    path: 'doctor/diseases/edit/:id',
+    component: DiseaseFormComponent,
+  },
+  {
     path: 'doctor/diagnosis',
     component: DiagnoseComponent,
   }
