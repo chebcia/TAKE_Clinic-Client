@@ -29,6 +29,8 @@ import { VisitsTableComponent } from './components/visits-table/visits-table.com
 import {DoctorsEffects} from "./store/effects/doctors.effects";
 import { DoctorSwitcherComponent } from './components/doctor-switcher/doctor-switcher.component';
 import { MatSelectModule } from '@angular/material/select';
+import {DiseasesEffects} from "./store/effects/diseases.effects";
+import { DiseasesTableComponent } from './components/diseases-table/diseases-table.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { MatSelectModule } from '@angular/material/select';
     HomeComponent,
     VisitsTableComponent,
     DoctorSwitcherComponent,
+    DiseasesTableComponent,
   ],
     imports: [
         CommonModule,
@@ -64,6 +67,7 @@ import { MatSelectModule } from '@angular/material/select';
         EffectsModule.forRoot([
           VisitsEffects,
           DoctorsEffects,
+          DiseasesEffects,
         ]),
         HttpClientModule,
     ],

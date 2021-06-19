@@ -4,6 +4,7 @@ import { DoctorVisitsModel } from "../models/doctor-visits.model";
 import { Observable } from "rxjs";
 import {map} from "rxjs/operators";
 import {DoctorModel} from "../models/doctor.model";
+import {DiseaseModel} from "../models/disease.model";
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,12 @@ export class ApiService {
     const url = 'doctors';
 
     return this.http.get<DoctorModel[]>(`${this.apiUrl}${url}`);
+  }
+
+  getDiseasesAll(): Observable<DiseaseModel[]> {
+    const url = 'diseases';
+
+    return this.http.get<DiseaseModel[]>(`${this.apiUrl}${url}`);
   }
 
   getDoctorVisits(id: number): Observable<DoctorVisitsModel> {

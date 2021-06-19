@@ -1,0 +1,11 @@
+.diseases-table {
+  width: 100%;
+
+  & > .diseases-table_controls {
+    margin-bottom: 32px;
+  }
+
+  & > .diseases-table_table {
+    width: 100%;
+  }
+}

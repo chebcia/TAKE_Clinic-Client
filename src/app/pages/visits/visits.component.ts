@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import visitsActions from "../../store/actions/visits.actions";
-import {UserTypesEnum} from "../../store/models/session.model";
+
 import {Store} from "@ngrx/store";
 import {AppState} from "../../store";
 import {combineLatest} from "rxjs";
