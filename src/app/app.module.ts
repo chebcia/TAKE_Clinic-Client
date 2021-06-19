@@ -26,6 +26,9 @@ import { VisitsEffects } from "./store/effects/visits.effects";
 import { MatTableModule } from "@angular/material/table";
 import {CommonModule} from "@angular/common";
 import { VisitsTableComponent } from './components/visits-table/visits-table.component';
+import {DoctorsEffects} from "./store/effects/doctors.effects";
+import { DoctorSwitcherComponent } from './components/doctor-switcher/doctor-switcher.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -38,6 +41,7 @@ import { VisitsTableComponent } from './components/visits-table/visits-table.com
     VisitsComponent,
     HomeComponent,
     VisitsTableComponent,
+    DoctorSwitcherComponent,
   ],
     imports: [
         CommonModule,
@@ -50,6 +54,7 @@ import { VisitsTableComponent } from './components/visits-table/visits-table.com
         MatSidenavModule,
         MatListModule,
         MatTableModule,
+        MatSelectModule,
         StoreModule.forRoot(reducers, {}),
         StoreDevtoolsModule.instrument({
           maxAge: 25, // Retains last 25 states
@@ -58,6 +63,7 @@ import { VisitsTableComponent } from './components/visits-table/visits-table.com
         }),
         EffectsModule.forRoot([
           VisitsEffects,
+          DoctorsEffects,
         ]),
         HttpClientModule,
     ],

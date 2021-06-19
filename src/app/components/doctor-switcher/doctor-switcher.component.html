@@ -1,0 +1,8 @@
+<mat-form-field appearance="fill">
+  <mat-label>Select doctor</mat-label>
+  <mat-select (selectionChange)="changeDoctor($event)" [value]="selectedDoctor | async">
+    <mat-option *ngFor="let doctor of (doctorsList | async)" [value]="doctor.id">
+      ({{doctor.id}}) {{doctor.firstName}} {{doctor.lastName}} — {{doctor.speciality}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
