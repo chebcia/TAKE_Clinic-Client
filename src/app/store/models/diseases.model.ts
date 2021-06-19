@@ -3,5 +3,6 @@ import { DiseaseModel } from "../../models/disease.model";
 
 export interface DiseasesModel {
   status: ApiStatusEnum;
+  createStatus: ApiStatusEnum;
   data: DiseaseModel[];
 }

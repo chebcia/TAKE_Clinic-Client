@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import { DoctorVisitsModel } from "../models/doctor-visits.model";
 import { Observable } from "rxjs";
 import {map} from "rxjs/operators";
@@ -24,6 +24,12 @@ export class ApiService {
     const url = 'diseases';
 
     return this.http.get<DiseaseModel[]>(`${this.apiUrl}${url}`);
+  }
+
+  postDisease(name: string, contagious: string) {
+    const url = `diseases/?name=${name}&contagious=${contagious}`;
+
+    return this.http.post(`${this.apiUrl}${url}`, null);
   }
 
   getDoctorVisits(id: number): Observable<DoctorVisitsModel> {

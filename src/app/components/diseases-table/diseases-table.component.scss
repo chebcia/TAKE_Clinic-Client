@@ -3,6 +3,10 @@
 
   & > .diseases-table_controls {
     margin-bottom: 32px;
+
+    & > * {
+      margin-right: 16px;
+    }
   }
 
   & > .diseases-table_table {

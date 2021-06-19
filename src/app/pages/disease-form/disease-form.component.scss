@@ -1,0 +1,10 @@
+.disease-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.disease-form-controls {
+  & > * {
+    margin-right: 16px;
+  }
+}

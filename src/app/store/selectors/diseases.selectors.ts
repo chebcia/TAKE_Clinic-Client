@@ -6,3 +6,8 @@ export const selectDiseasesData = createSelector(
   selectDiseases,
   (state: DiseasesModel) => state.data
 );
+
+export const selectDiseasesCreateStatus = createSelector(
+  selectDiseases,
+  (state: DiseasesModel) => state.createStatus
+);

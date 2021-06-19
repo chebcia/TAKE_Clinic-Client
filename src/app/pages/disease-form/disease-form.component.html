@@ -1,0 +1,49 @@
+<ng-container [ngSwitch]="diseaseCreateState | async">
+  <ng-container *ngSwitchCase="apiStatusEnum.Init">
+    <form [formGroup]="form" class="disease-form" (submit)="submitForm($event)">
+      <mat-form-field>
+        <mat-label>Id</mat-label>
+        <input formControlName="id" matInput>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input formControlName="name" matInput placeholder="Ex. COVID-19">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Contagious</mat-label>
+        <input
+          formControlName="contagious"
+          matInput
+          placeholder="One char allowed only"
+          maxlength="1"
+        >
+      </mat-form-field>
+
+      <button mat-raised-button color="primary">Submit</button>
+    </form>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="apiStatusEnum.Pending">
+    <mat-spinner></mat-spinner>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="apiStatusEnum.Success">
+    <p class="disease-form-copy">
+      Created disease
+    </p>
+    <div class="disease-form-controls">
+      <button mat-raised-button color="primary" (click)="refresh()">Create one more</button>
+      <a mat-raised-button color="accent" href="/doctor/diseases">Go back to diseases list</a>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="apiStatusEnum.Failed">
+    <p class="disease-form-copy">
+      Failed creating disease
+    </p>
+    <div class="disease-form-controls">
+      <button mat-raised-button color="primary" (click)="refresh()">Try again</button>
+      <a mat-raised-button color="accent" href="/doctor/diseases">Go back to diseases list</a>
+    </div>
+  </ng-container>
+</ng-container>

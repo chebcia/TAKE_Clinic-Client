@@ -31,6 +31,10 @@ import { DoctorSwitcherComponent } from './components/doctor-switcher/doctor-swi
 import { MatSelectModule } from '@angular/material/select';
 import {DiseasesEffects} from "./store/effects/diseases.effects";
 import { DiseasesTableComponent } from './components/diseases-table/diseases-table.component';
+import { DiseaseFormComponent } from './pages/disease-form/disease-form.component';
+import {MatInputModule} from "@angular/material/input";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -45,32 +49,36 @@ import { DiseasesTableComponent } from './components/diseases-table/diseases-tab
     VisitsTableComponent,
     DoctorSwitcherComponent,
     DiseasesTableComponent,
+    DiseaseFormComponent,
   ],
-    imports: [
-        CommonModule,
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        MatButtonModule,
-        MatIconModule,
-        MatSidenavModule,
-        MatListModule,
-        MatTableModule,
-        MatSelectModule,
-        StoreModule.forRoot(reducers, {}),
-        StoreDevtoolsModule.instrument({
-          maxAge: 25, // Retains last 25 states
-          logOnly: environment.production, // Restrict extension to log-only mode
-          autoPause: true, // Pauses recording actions and state changes when the extension window is not open
-        }),
-        EffectsModule.forRoot([
-          VisitsEffects,
-          DoctorsEffects,
-          DiseasesEffects,
-        ]),
-        HttpClientModule,
-    ],
+  imports: [
+    CommonModule,
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    MatTableModule,
+    MatSelectModule,
+    MatInputModule,
+    MatProgressSpinnerModule,
+    StoreModule.forRoot(reducers, {}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
+      autoPause: true, // Pauses recording actions and state changes when the extension window is not open
+    }),
+    EffectsModule.forRoot([
+      VisitsEffects,
+      DoctorsEffects,
+      DiseasesEffects,
+    ]),
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

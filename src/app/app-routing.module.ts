@@ -5,6 +5,7 @@ import {VisitsComponent} from "./pages/visits/visits.component";
 import {DiseaseComponent} from "./pages/disease/disease.component";
 import {DiagnoseComponent} from "./pages/diagnose/diagnose.component";
 import {HomeComponent} from "./pages/home/home.component";
+import {DiseaseFormComponent} from "./pages/disease-form/disease-form.component";
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'doctor/diseases',
     component: DiseaseComponent,
+  },
+  {
+    path: 'doctor/diseases/create',
+    component: DiseaseFormComponent,
   },
   {
     path: 'doctor/diagnosis',
