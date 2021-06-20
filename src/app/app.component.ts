@@ -3,6 +3,7 @@ import {Store} from "@ngrx/store";
 import {AppState} from "./store";
 import doctorsActions from "./store/actions/doctors.actions";
 import diseasesActions from "./store/actions/diseases.actions";
+import diagnosesActions from "./store/actions/diagnoses.actions";
 
 @Component({
   selector: 'app-root',
@@ -15,5 +16,6 @@ export class AppComponent {
   constructor(store: Store<AppState>) {
     store.dispatch(doctorsActions.fetchStart());
     store.dispatch(diseasesActions.fetchStart());
+    store.dispatch(diagnosesActions.fetchStart());
   }
 }

@@ -1,0 +1,10 @@
+.diagnose-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.diagnose-form-controls {
+  & > * {
+    margin-right: 16px;
+  }
+}

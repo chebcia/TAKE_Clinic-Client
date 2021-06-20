@@ -6,6 +6,7 @@ import {DiseaseComponent} from "./pages/disease/disease.component";
 import {DiagnoseComponent} from "./pages/diagnose/diagnose.component";
 import {HomeComponent} from "./pages/home/home.component";
 import {DiseaseFormComponent} from "./pages/disease-form/disease-form.component";
+import {DiagnoseFormComponent} from "./pages/diagnose-form/diagnose-form.component";
 
 const routes: Routes = [
   {
@@ -35,6 +36,14 @@ const routes: Routes = [
   {
     path: 'doctor/diagnoses',
     component: DiagnoseComponent,
+  },
+  {
+    path: 'doctor/diagnoses/create',
+    component: DiagnoseFormComponent,
+  },
+  {
+    path: 'doctor/diagnoses/edit/:id',
+    component: DiagnoseFormComponent,
   }
 ];
 

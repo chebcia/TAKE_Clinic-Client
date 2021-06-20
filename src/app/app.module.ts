@@ -37,6 +37,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { DiagnosesTableComponent } from './components/diagnoses-table/diagnoses-table.component';
 import {DiagnosesEffects} from "./store/effects/diagnoses.effects";
+import { DiagnoseFormComponent } from './pages/diagnose-form/diagnose-form.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import {DiagnosesEffects} from "./store/effects/diagnoses.effects";
     DiseasesTableComponent,
     DiseaseFormComponent,
     DiagnosesTableComponent,
+    DiagnoseFormComponent,
   ],
   imports: [
     CommonModule,

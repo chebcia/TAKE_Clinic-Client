@@ -1,9 +1,9 @@
 import { ApiStatusEnum } from "../../models/api-status.enum";
-import { DiseaseModel } from "../../models/disease.model";
+import {DiagnoseModel} from "../../models/diagnose.model";
 
 export interface DiagnosesModel {
   status: ApiStatusEnum;
   createStatus: ApiStatusEnum;
   editStatus: ApiStatusEnum;
-  data: DiseaseModel[];
+  data: DiagnoseModel[];
 }

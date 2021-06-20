@@ -4,8 +4,9 @@ import {DiseaseModel} from "../../models/disease.model";
 import {ApiStatusEnum} from "../../models/api-status.enum";
 import {Store} from "@ngrx/store";
 import {AppState} from "../../store";
-import {selectDiseasesData, selectDiseasesDataStatus} from "../../store/selectors/diseases.selectors";
 import diseasesActions from "../../store/actions/diseases.actions";
+import {selectDiagnosesData, selectDiagnosesDataStatus} from "../../store/selectors/diagnoses.selectors";
+import {DiagnoseModel} from "../../models/diagnose.model";
 
 @Component({
   selector: 'app-diagnoses-table',
@@ -13,15 +14,15 @@ import diseasesActions from "../../store/actions/diseases.actions";
   styleUrls: ['./diagnoses-table.component.scss']
 })
 export class DiagnosesTableComponent {
-  dataSource: Observable<DiseaseModel[]>;
+  dataSource: Observable<DiagnoseModel[]>;
   dataStatus: Observable<ApiStatusEnum>;
   apiStatusEnum = ApiStatusEnum;
 
-  displayedColumns: string[] = ['id', 'name', 'contagious', 'controls'];
+  displayedColumns: string[] = ['id', 'note', 'visit', 'disease', 'controls'];
 
   constructor(private store: Store<AppState>) {
-    this.dataSource = store.select(selectDiseasesData);
-    this.dataStatus = store.select(selectDiseasesDataStatus);
+    this.dataSource = store.select(selectDiagnosesData);
+    this.dataStatus = store.select(selectDiagnosesDataStatus);
   }
 
   refresh() {

@@ -1,0 +1,48 @@
+<ng-container [ngSwitch]="screenView">
+  <ng-container *ngSwitchCase="screenViews.Init">
+    <form [formGroup]="form" class="diagnose-form" (submit)="submitForm($event)">
+      <mat-form-field>
+        <mat-label>Id</mat-label>
+        <input matInput disabled [value]="id">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Note</mat-label>
+        <input formControlName="note" matInput placeholder="Ex. SARS-CoV-2">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Disease id</mat-label>
+        <input formControlName="diseaseId" matInput placeholder="Ex. 0" type="number">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Visit id</mat-label>
+        <input formControlName="visitId" matInput placeholder="Ex. 0" type="number">
+      </mat-form-field>
+
+      <button mat-raised-button color="primary">Submit</button>
+    </form>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="screenViews.Pending">
+    <mat-spinner></mat-spinner>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="screenViews.Success">
+    <p class="diagnose-form-copy">
+      Created / edited diagnose
+    </p>
+    <div class="diagnose-form-controls">
+      <button mat-raised-button color="primary" (click)="refresh()">Create one more</button>
+      <a mat-raised-button color="accent" href="/doctor/diagnoses">Go back to diagnoses list</a>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="screenViews.Failed">
+    <p class="diagnose-form-copy">
+      Failed creating / edited diagnose
+    </p>
+    <div class="diagnose-form-controls">
+      <button mat-raised-button color="primary" (click)="refresh()">Try again</button>
+      <a mat-raised-button color="accent" href="/doctor/diagnoses">Go back to diagnoses list</a>
+    </div>
+  </ng-container>
+</ng-container>
