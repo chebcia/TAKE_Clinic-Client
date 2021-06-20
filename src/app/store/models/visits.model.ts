@@ -3,5 +3,6 @@ import { DoctorVisitsModel } from "../../models/doctor-visits.model";
 
 export interface VisitsModel {
   status: ApiStatusEnum;
+  finishStatus: ApiStatusEnum;
   data: DoctorVisitsModel;
 }

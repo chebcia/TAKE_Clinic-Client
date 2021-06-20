@@ -6,6 +6,7 @@ import {map} from "rxjs/operators";
 import {DoctorModel} from "../models/doctor.model";
 import {DiseaseModel} from "../models/disease.model";
 import {DiagnoseModel} from "../models/diagnose.model";
+import {VisitStatusEnum} from "../models/visit-status.enum";
 
 @Injectable({
   providedIn: 'root'
@@ -67,5 +68,13 @@ export class ApiService {
         )
       )
     );
+  }
+
+  putVisitStatus(id: number, status: VisitStatusEnum) {
+    const statusIndex = Object.values(VisitStatusEnum).indexOf(status);
+
+    const url = `visits/${id}/status/?status=${statusIndex}`;
+
+    return this.http.put(`${this.apiUrl}${url}`, null);
   }
 }

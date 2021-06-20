@@ -7,5 +7,11 @@
 
   & > .visits-table_table {
     width: 100%;
+
+    .visits-table_table_controls {
+      & > * {
+        margin-right: 16px;
+      }
+    }
   }
 }

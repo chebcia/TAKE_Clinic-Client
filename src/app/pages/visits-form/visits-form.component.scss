@@ -1,0 +1,10 @@
+.visit-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.visit-form-controls {
+  & > * {
+    margin-right: 16px;
+  }
+}

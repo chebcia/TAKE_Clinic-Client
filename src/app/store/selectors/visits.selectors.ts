@@ -11,3 +11,8 @@ export const selectVisitsDataStatus = createSelector(
   selectVisits,
   (state: VisitsModel) => state.status
 );
+
+export const selectVisitsFinishStatus = createSelector(
+  selectVisits,
+  (state: VisitsModel) => state.finishStatus
+);

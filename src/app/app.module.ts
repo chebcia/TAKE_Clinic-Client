@@ -38,6 +38,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { DiagnosesTableComponent } from './components/diagnoses-table/diagnoses-table.component';
 import {DiagnosesEffects} from "./store/effects/diagnoses.effects";
 import { DiagnoseFormComponent } from './pages/diagnose-form/diagnose-form.component';
+import { VisitsFormComponent } from './pages/visits-form/visits-form.component';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -55,6 +57,7 @@ import { DiagnoseFormComponent } from './pages/diagnose-form/diagnose-form.compo
     DiseaseFormComponent,
     DiagnosesTableComponent,
     DiagnoseFormComponent,
+    VisitsFormComponent,
   ],
   imports: [
     CommonModule,
@@ -70,6 +73,7 @@ import { DiagnoseFormComponent } from './pages/diagnose-form/diagnose-form.compo
     MatSelectModule,
     MatInputModule,
     MatProgressSpinnerModule,
+    MatSnackBarModule,
     StoreModule.forRoot(reducers, {}),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
