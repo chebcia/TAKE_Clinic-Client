@@ -30,8 +30,8 @@
         </ng-container>
 
         <ng-container matColumnDef="controls">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Controls </th>
-          <td mat-cell *matCellDef="let element">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="diseases-table_table_controls"> Controls </th>
+          <td mat-cell *matCellDef="let element" class="diseases-table_table_controls">
             <a [href]="'/doctor/diseases/edit/' + element.id" mat-icon-button color="primary">
               <mat-icon>mode</mat-icon>
             </a>

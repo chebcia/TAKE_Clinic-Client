@@ -11,5 +11,13 @@
 
   & > .diseases-table_table {
     width: 100%;
+
+    .diseases-table_table_controls {
+      text-align: right;
+
+      & > * {
+        margin-left: 16px;
+      }
+    }
   }
 }

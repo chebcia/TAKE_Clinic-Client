@@ -1,11 +1,15 @@
 <mat-toolbar color="primary">
-  <button
-    mat-icon-button class="topbar-icon"
-    (click)="drawerChange.emit()"
-  >
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>TAKE Clinic</span>
-  <span class="topbar-spacer"></span>
-  <app-doctor-switcher></app-doctor-switcher>
+  <mat-toolbar-row>
+    <button
+      mat-icon-button class="topbar-icon"
+      (click)="drawerChange.emit()"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>TAKE Clinic</span>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <span class="topbar-spacer"></span>
+    <app-doctor-switcher></app-doctor-switcher>
+  </mat-toolbar-row>
 </mat-toolbar>

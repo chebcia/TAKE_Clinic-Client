@@ -40,6 +40,7 @@ import {DiagnosesEffects} from "./store/effects/diagnoses.effects";
 import { DiagnoseFormComponent } from './pages/diagnose-form/diagnose-form.component';
 import { VisitsFormComponent } from './pages/visits-form/visits-form.component';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatSortModule} from "@angular/material/sort";
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     MatSidenavModule,
     MatListModule,
     MatTableModule,
+    MatSortModule,
     MatSelectModule,
     MatInputModule,
     MatProgressSpinnerModule,
