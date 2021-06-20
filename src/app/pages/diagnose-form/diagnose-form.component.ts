@@ -11,6 +11,11 @@ import {
   selectDiagnosesEditStatus
 } from "../../store/selectors/diagnoses.selectors";
 import diagnosesActions from "../../store/actions/diagnoses.actions";
+import {DiseaseModel} from "../../models/disease.model";
+import {selectDiseasesData} from "../../store/selectors/diseases.selectors";
+import {selectVisitsData} from "../../store/selectors/visits.selectors";
+import {DoctorVisitsModel} from "../../models/doctor-visits.model";
+import {MatSelectChange} from "@angular/material/select";
 
 @Component({
   selector: 'app-diagnose-form',
@@ -25,6 +30,8 @@ export class DiagnoseFormComponent implements OnInit {
   });
 
   id: number | '' = '';
+  diseases: Observable<DiseaseModel[]>;
+  visits: Observable<DoctorVisitsModel>;
 
   screenView = ApiStatusEnum.Init;
   screenViews = ApiStatusEnum;
@@ -37,6 +44,8 @@ export class DiagnoseFormComponent implements OnInit {
   constructor(private store: Store<AppState>, private route: ActivatedRoute) {
     this.diagnoseCreateState = store.select(selectDiagnosesCreateStatus);
     this.diagnoseEditState = store.select(selectDiagnosesEditStatus);
+    this.diseases = store.select(selectDiseasesData);
+    this.visits = store.select(selectVisitsData);
 
     combineLatest([this.diagnoseCreateState, this.diagnoseEditState]).subscribe(([createState, editState]) => {
       if (this.editMode) {
@@ -91,6 +100,14 @@ export class DiagnoseFormComponent implements OnInit {
     } else {
       this.store.dispatch(diagnosesActions.createStart({note, diseaseId, visitId}))
     }
+  }
+
+  changeSelectDiseaseId({ value }: MatSelectChange): void {
+    this.form.controls.diseaseId.setValue(value);
+  }
+
+  changeSelectVisitId({ value }: MatSelectChange): void {
+    this.form.controls.visitId.setValue(value);
   }
 
   refresh(): void {

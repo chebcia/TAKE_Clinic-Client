@@ -4,6 +4,9 @@ import {AppState} from "./store";
 import doctorsActions from "./store/actions/doctors.actions";
 import diseasesActions from "./store/actions/diseases.actions";
 import diagnosesActions from "./store/actions/diagnoses.actions";
+import visitsActions from "./store/actions/visits.actions";
+import {selectSessionId, selectSessionType} from "./store/selectors/session.selectors";
+import {combineLatest} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -15,7 +18,12 @@ export class AppComponent {
 
   constructor(store: Store<AppState>) {
     store.dispatch(doctorsActions.fetchStart());
+
     store.dispatch(diseasesActions.fetchStart());
     store.dispatch(diagnosesActions.fetchStart());
+
+    combineLatest([store.select(selectSessionId), store.select(selectSessionType)]).subscribe(([id, apiType]) => {
+      store.dispatch(visitsActions.fetchStart({ id, apiType }));
+    })
   }
 }

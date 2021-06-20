@@ -9,13 +9,21 @@
         <mat-label>Note</mat-label>
         <input formControlName="note" matInput placeholder="Ex. SARS-CoV-2">
       </mat-form-field>
-      <mat-form-field>
-        <mat-label>Disease id</mat-label>
-        <input formControlName="diseaseId" matInput placeholder="Ex. 0" type="number">
+      <mat-form-field appearance="fill">
+        <mat-label>Disease</mat-label>
+        <mat-select (selectionChange)="changeSelectDiseaseId($event)" [value]="form.value.diseaseId">
+          <mat-option *ngFor="let disease of (diseases | async)" [value]="disease.id">
+            ({{disease.id}}) {{disease.name}} — {{disease.contagious}}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
-      <mat-form-field>
-        <mat-label>Visit id</mat-label>
-        <input formControlName="visitId" matInput placeholder="Ex. 0" type="number">
+      <mat-form-field appearance="fill">
+        <mat-label>Visit</mat-label>
+        <mat-select (selectionChange)="changeSelectVisitId($event)" [value]="form.value.visitId">
+          <mat-option *ngFor="let visit of (visits | async)" [value]="visit.id">
+            ({{visit.id}}) {{visit.note}} @ {{visit.date | date}} — {{visit.status}}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
 
       <button mat-raised-button color="primary">Submit</button>

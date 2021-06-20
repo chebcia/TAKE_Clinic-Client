@@ -46,13 +46,13 @@ export class ApiService {
   }
 
   postDiagnose(note: string, diseaseId: number, visitId: number) {
-    const url = `diseases/?note=${note}&diseaseId=${diseaseId}&visitId=${visitId}`;
+    const url = `diagnosis/?note=${note}&diseaseId=${diseaseId}&visitId=${visitId}`;
 
     return this.http.post(`${this.apiUrl}${url}`, null);
   }
 
   putDiagnose(id: number, note: string, diseaseId: number, visitId: number) {
-    const url = `diseases/${id}?note=${note}&diseaseId=${diseaseId}&visitId=${visitId}`;
+    const url = `diagnosis/${id}?note=${note}&diseaseId=${diseaseId}&visitId=${visitId}`;
 
     return this.http.put(`${this.apiUrl}${url}`, null);
   }
