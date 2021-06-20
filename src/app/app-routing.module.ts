@@ -33,7 +33,7 @@ const routes: Routes = [
     component: DiseaseFormComponent,
   },
   {
-    path: 'doctor/diagnosis',
+    path: 'doctor/diagnoses',
     component: DiagnoseComponent,
   }
 ];

@@ -1,0 +1,15 @@
+.diagnoses-table {
+  width: 100%;
+
+  & > .diagnoses-table_controls {
+    margin-bottom: 32px;
+
+    & > * {
+      margin-right: 16px;
+    }
+  }
+
+  & > .diagnoses-table_table {
+    width: 100%;
+  }
+}

@@ -35,6 +35,8 @@ import { DiseaseFormComponent } from './pages/disease-form/disease-form.componen
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { DiagnosesTableComponent } from './components/diagnoses-table/diagnoses-table.component';
+import {DiagnosesEffects} from "./store/effects/diagnoses.effects";
 
 @NgModule({
   declarations: [
@@ -50,6 +52,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     DoctorSwitcherComponent,
     DiseasesTableComponent,
     DiseaseFormComponent,
+    DiagnosesTableComponent,
   ],
   imports: [
     CommonModule,
@@ -75,6 +78,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
       VisitsEffects,
       DoctorsEffects,
       DiseasesEffects,
+      DiagnosesEffects,
     ]),
     HttpClientModule,
     ReactiveFormsModule,

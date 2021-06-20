@@ -5,6 +5,7 @@ import { Observable } from "rxjs";
 import {map} from "rxjs/operators";
 import {DoctorModel} from "../models/doctor.model";
 import {DiseaseModel} from "../models/disease.model";
+import {DiagnoseModel} from "../models/diagnose.model";
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +35,24 @@ export class ApiService {
 
   putDisease(id: number, name: string, contagious: string) {
     const url = `diseases/${id}?name=${name}&contagious=${contagious}`;
+
+    return this.http.put(`${this.apiUrl}${url}`, null);
+  }
+
+  getDiagnosesAll(): Observable<DiagnoseModel[]> {
+    const url = 'diagnosis';
+
+    return this.http.get<DiagnoseModel[]>(`${this.apiUrl}${url}`);
+  }
+
+  postDiagnose(note: string, diseaseId: number, visitId: number) {
+    const url = `diseases/?note=${note}&diseaseId=${diseaseId}&visitId=${visitId}`;
+
+    return this.http.post(`${this.apiUrl}${url}`, null);
+  }
+
+  putDiagnose(id: number, note: string, diseaseId: number, visitId: number) {
+    const url = `diseases/${id}?note=${note}&diseaseId=${diseaseId}&visitId=${visitId}`;
 
     return this.http.put(`${this.apiUrl}${url}`, null);
   }
