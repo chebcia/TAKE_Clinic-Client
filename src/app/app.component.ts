@@ -7,6 +7,10 @@ import diagnosesActions from "./store/actions/diagnoses.actions";
 import visitsActions from "./store/actions/visits.actions";
 import {selectSessionId, selectSessionType} from "./store/selectors/session.selectors";
 import {combineLatest} from "rxjs";
+import {selectDoctorsData} from "./store/selectors/doctors.selectors";
+import {filter} from "rxjs/operators";
+import {selectDiseasesData} from "./store/selectors/diseases.selectors";
+import {selectDiagnosesData} from "./store/selectors/diagnoses.selectors";
 
 @Component({
   selector: 'app-root',
@@ -17,10 +21,17 @@ export class AppComponent {
   title = 'TAKE-Client';
 
   constructor(store: Store<AppState>) {
-    store.dispatch(doctorsActions.fetchStart());
+    store.select(selectDoctorsData)
+      .pipe(filter(data => !data || data.length <= 0))
+      .subscribe(() => store.dispatch(doctorsActions.fetchStart()));
 
-    store.dispatch(diseasesActions.fetchStart());
-    store.dispatch(diagnosesActions.fetchStart());
+    store.select(selectDiseasesData)
+      .pipe(filter(data => !data || data.length <= 0))
+      .subscribe(() => store.dispatch(diseasesActions.fetchStart()));
+
+    store.select(selectDiagnosesData)
+      .pipe(filter(data => !data || data.length <= 0))
+      .subscribe(() => store.dispatch(diagnosesActions.fetchStart()));
 
     combineLatest([store.select(selectSessionId), store.select(selectSessionType)]).subscribe(([id, apiType]) => {
       store.dispatch(visitsActions.fetchStart({ id, apiType }));
