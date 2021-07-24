@@ -13,9 +13,6 @@ const _actionReducer = createReducer(
   initialState,
   on(sessionActions.setKind, (state, { kind }) => ({ ...state, kind })),
   on(sessionActions.setId, (state, { id }) => ({ ...state, id })),
-  on(sessionActions.setFirstName, (state, { firstName }) => ({ ...state, firstName })),
-  on(sessionActions.setLastName, (state, { lastName }) => ({ ...state, lastName })),
-  on(sessionActions.setSpeciality, (state, { speciality }) => ({ ...state, speciality })),
 );
 
 export function actionReducer(state: SessionModel | undefined, action: Action) {
