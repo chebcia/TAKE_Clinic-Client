@@ -76,8 +76,8 @@ export class DiagnoseFormComponent implements OnInit {
             }
 
             this.form.controls.note.setValue(data.note);
-            this.form.controls.diseaseId.setValue(data.disease);
-            this.form.controls.visitId.setValue(data.visit);
+            this.form.controls.diseaseId.setValue(data.disease.id);
+            this.form.controls.visitId.setValue(data.visit.id);
           })
 
           break;
