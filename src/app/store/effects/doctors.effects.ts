@@ -4,6 +4,7 @@ import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {catchError, exhaustMap, map} from "rxjs/operators";
 import { of } from "rxjs";
 import doctorsActions, {DoctorsActionsEnum} from "../actions/doctors.actions";
+import sessionActions from "../actions/session.actions";
 
 @Injectable()
 export class DoctorsEffects {
@@ -15,7 +16,10 @@ export class DoctorsEffects {
       exhaustMap((action) => {
 
         return this.apiService.getDoctorsAll().pipe(
-          map(data => doctorsActions.fetchSuccess({data})),
+          exhaustMap(data => {
+            const firstDoctorId = Math.min(...data.map(({ id }) => id)) || 0;
+            return [sessionActions.setId({ id: firstDoctorId }), doctorsActions.fetchSuccess({data})];
+          }),
           catchError(() => of(doctorsActions.fetchFailed()))
         )
       })

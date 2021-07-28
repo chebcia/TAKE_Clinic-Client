@@ -23,7 +23,9 @@ export class AppComponent {
   constructor(store: Store<AppState>) {
     store.select(selectDoctorsData)
       .pipe(filter(data => !data || data.length <= 0))
-      .subscribe(() => store.dispatch(doctorsActions.fetchStart()));
+      .subscribe(() => {
+        store.dispatch(doctorsActions.fetchStart())
+      });
 
     store.select(selectDiseasesData)
       .pipe(filter(data => !data || data.length <= 0))
