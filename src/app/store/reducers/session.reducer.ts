@@ -5,8 +5,6 @@ import {SessionModel, UserTypesEnum} from "../models/session.model";
 export const initialState: SessionModel = {
   type: UserTypesEnum.Doctor,
   id: 0,
-  firstName: null,
-  lastName: null,
 };
 
 const _actionReducer = createReducer(

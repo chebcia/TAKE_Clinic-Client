@@ -5,7 +5,5 @@ export enum UserTypesEnum {
 export interface SessionModel {
   type: UserTypesEnum;
   id: number;
-  firstName: string | null;
-  lastName: string | null;
   speciality?: string;
 }
