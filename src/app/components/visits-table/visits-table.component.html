@@ -1,6 +1,7 @@
 <div class="visits-table">
   <div class="visits-table_controls">
     <button mat-stroked-button color="primary" (click)="refresh()">Refresh</button>
+<!--    <a mat-stroked-button color="primary" href="/doctor/visits/create">Create new</a>-->
   </div>
 
   <ng-container [ngSwitch]="dataStatus | async">
@@ -38,6 +39,9 @@
           <td mat-cell *matCellDef="let element" class="visits-table_table_controls">
             <button mat-stroked-button color="primary" (click)="finishVisit(element.id)">
               Finish visit
+            </button>
+            <button mat-stroked-button color="primary" (click)="cancelVisit(element.id)">
+              Cancel visit
             </button>
             <a [href]="'/doctor/visits/' + element.id" mat-stroked-button color="primary">
               Add diagnose

@@ -3,6 +3,9 @@
 
   & > .visits-table_controls {
     margin-bottom: 32px;
+    & > * {
+      margin-right: 16px;
+    }
   }
 
   & > .visits-table_table {
