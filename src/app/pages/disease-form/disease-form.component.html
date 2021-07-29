@@ -29,7 +29,7 @@
 
   <ng-container *ngSwitchCase="screenViews.Success">
     <p class="disease-form-copy">
-      Created / edited disease
+      Disease has been created / edited.
     </p>
     <div class="disease-form-controls">
       <!-- <button mat-raised-button color="primary" (click)="refresh()">Create one more</button> -->
@@ -39,7 +39,7 @@
 
   <ng-container *ngSwitchCase="screenViews.Failed">
     <p class="disease-form-copy">
-      Failed creating / edited disease
+      Disease edit failed.
     </p>
     <div class="disease-form-controls">
       <button mat-raised-button color="primary" (click)="refresh()">Try again</button>

@@ -32,7 +32,7 @@
 
   <ng-container *ngSwitchCase="screenViews.Success">
     <p class="visit-form-copy">
-      Diagnosis was added to the visit
+      Diagnosis has been added to the visit.
     </p>
     <div class="visit-form-controls">
       <!-- <button mat-raised-button color="primary" (click)="refresh()">Create one more</button> -->
@@ -42,7 +42,7 @@
 
   <ng-container *ngSwitchCase="screenViews.Failed">
     <p class="visit-form-copy">
-      Failed creating / edited visit
+      Visit edit failed.
     </p>
     <div class="visit-form-controls">
       <button mat-raised-button color="primary" (click)="refresh()">Try again</button>
