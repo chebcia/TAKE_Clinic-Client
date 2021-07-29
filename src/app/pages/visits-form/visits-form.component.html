@@ -13,14 +13,14 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <!-- <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill">
         <mat-label>Visit</mat-label>
         <mat-select (selectionChange)="changeSelectVisitId($event)" [value]="id" disabled>
           <mat-option *ngFor="let visit of (visits | async)" [value]="visit.id">
             ({{visit.id}}) {{visit.note}} @ {{visit.date | date}} — {{visit.status}}
           </mat-option>
         </mat-select>
-      </mat-form-field> -->
+      </mat-form-field>
 
       <button mat-raised-button color="primary">Submit</button>
     </form>
