@@ -40,11 +40,11 @@
             <button mat-stroked-button color="primary" (click)="finishVisit(element.id)">
               Finish visit
             </button>
-            <button mat-stroked-button color="primary" (click)="cancelVisit(element.id)">
+            <button mat-stroked-button color="secondary" (click)="cancelVisit(element.id)">
               Cancel visit
             </button>
             <a [href]="'/doctor/visits/' + element.id" mat-stroked-button color="primary">
-              Add diagnose
+              Add diagnosis
             </a>
           </td>
         </ng-container>

@@ -64,5 +64,5 @@ export class VisitsTableComponent implements OnInit {
   cancelVisit(id: number): void {
     this.store.dispatch(visitsActions.finishStart({ id, status: VisitStatusEnum.Canceled }))
   }
-  
+
 }
