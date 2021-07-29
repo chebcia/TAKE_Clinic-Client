@@ -13,14 +13,14 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field appearance="fill">
+      <!-- <mat-form-field appearance="fill">
         <mat-label>Visit</mat-label>
         <mat-select (selectionChange)="changeSelectVisitId($event)" [value]="id" disabled>
           <mat-option *ngFor="let visit of (visits | async)" [value]="visit.id">
             ({{visit.id}}) {{visit.note}} @ {{visit.date | date}} — {{visit.status}}
           </mat-option>
         </mat-select>
-      </mat-form-field>
+      </mat-form-field> -->
 
       <button mat-raised-button color="primary">Submit</button>
     </form>
@@ -32,10 +32,10 @@
 
   <ng-container *ngSwitchCase="screenViews.Success">
     <p class="visit-form-copy">
-      Created / edited visit
+      Diagnosis was added to the visit
     </p>
     <div class="visit-form-controls">
-      <button mat-raised-button color="primary" (click)="refresh()">Create one more</button>
+      <!-- <button mat-raised-button color="primary" (click)="refresh()">Create one more</button> -->
       <a mat-raised-button color="accent" href="/doctor/visits">Go back to visits list</a>
     </div>
   </ng-container>
